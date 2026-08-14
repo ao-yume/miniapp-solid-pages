@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no"
+    />
+    <title>آئو یومه</title>
+    <style>
+      /* anti-FOUC: inline @font-face + background per §2/§9.9 */
+      @font-face {
+        font-family: 'Modam';
+        /* /miniapp-solid-pages/ is replaced by Vite with the configured base (/miniapp/ in prod,
+           /<repo>/ on the GitHub Pages mirror) — the font stays same-origin on every host */
+        src: url('/miniapp-solid-pages/fonts/modam-fa.woff2') format('woff2');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0e1621;
+        color: #a1a1aa;
+      }
+      #splash {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0e1621;
+        z-index: 9999;
+      }
+      #splash img {
+        width: 120px;
+        height: 120px;
+      }
+    </style>
+    <!-- ES5 polyfills BEFORE app scripts (§2/§9.3 [QC4]/[QC8]) — Chromium 70 floor -->
+    <script>
+      if (!window.queueMicrotask)
+        window.queueMicrotask = function (cb) {
+          Promise.resolve().then(cb);
+        };
+    </script>
+    <script>
+      if (typeof globalThis === 'undefined') {
+        Object.defineProperty(window, 'globalThis', {
+          get: function () {
+            return window;
+          },
+        });
+      }
+    </script>
+    <!-- Self-hosted Telegram WebApp bridge — [CONV1] `defer` keeps the splash on the
+         parse-critical path while the bridge downloads; executes before the module bundle.
+         OMITTED under VITE_E2E=1 so the §11.3 addInitScript mock is not clobbered. -->
+    <script src="/miniapp-solid-pages/telegram-web-app.js.js" defer></script>
+    <script type="module" crossorigin src="/miniapp-solid-pages/assets/index-8_8HrJ4M.js"></script>
+    <link rel="modulepreload" crossorigin href="/miniapp-solid-pages/assets/objectSpread2-CNMZnZV-.js">
+    <link rel="modulepreload" crossorigin href="/miniapp-solid-pages/assets/web-D3h10Xt0.js">
+    <link rel="stylesheet" crossorigin href="/miniapp-solid-pages/assets/index-JKwf7I19.css">
+  </head>
+  <body>
+    <!-- static inline splash markup (~1 KB, §7.1) — paints before the app bundle -->
+    <div id="splash">
+      <img src="/miniapp-solid-pages/assets/aoyume.svg" alt="آئو یومه" />
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
