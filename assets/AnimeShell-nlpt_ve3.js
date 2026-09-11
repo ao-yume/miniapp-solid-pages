@@ -1,1 +1,0 @@
-import{S as e}from"./web-D3h10Xt0.js";import{r as t}from"./index-C6SWfN9l.js";import{t as n}from"./RouteSkeleton-BQVVEi-M.js";function m(r){return e(t,{get fallback(){return e(n,{})},get children(){return r.children}})}export{m as AnimeShell,m as default};
