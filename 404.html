@@ -8,6 +8,15 @@
     />
     <title>آئو یومه</title>
     <meta name="theme-color" content="#0e1621" />
+    <!-- Supabase origin — EVERY boot-path call (functions/v1 mint, auth/v1 token, rest/v1
+         RPC) rides this ONE origin, and the mint's first fetch is the app's first network
+         call after the bundle. Preconnecting during the HTML parse pays the DNS + TCP +
+         TLS handshake off the critical path (measured ~1.3 s of TCP+TLS on that first
+         call). `crossorigin` matches the app's anonymous CORS fetch mode — a mismatch
+         would open a SECOND connection instead of warming this one. Keep the URL in step
+         with src/lib/supabase/client.ts (SUPABASE_URL's fallback: .env is gitignored, so
+         the fallback literal is what CI builds against). -->
+    <link rel="preconnect" href="https://bburkvhaokdtocyrznyv.supabase.co" crossorigin />
     <!-- brand mark — prevents the default /favicon.ico 404 in the WebView -->
     <link rel="icon" href="/miniapp-solid-pages/assets/aoyume.svg" />
     <style>
@@ -61,7 +70,7 @@
          parse-critical path while the bridge downloads; executes before the module bundle.
          OMITTED under VITE_E2E=1 so the §11.3 addInitScript mock is not clobbered. -->
     <script src="/miniapp-solid-pages/telegram-web-app.js.js" defer></script>
-    <script type="module" crossorigin src="/miniapp-solid-pages/assets/index-DmYqgizy.js"></script>
+    <script type="module" crossorigin src="/miniapp-solid-pages/assets/index-Dstb-3FG.js"></script>
     <link rel="modulepreload" crossorigin href="/miniapp-solid-pages/assets/objectSpread2-CNMZnZV-.js">
     <link rel="modulepreload" crossorigin href="/miniapp-solid-pages/assets/web-CiNxUFf_.js">
     <link rel="stylesheet" crossorigin href="/miniapp-solid-pages/assets/index-DTZwp0eh.css">

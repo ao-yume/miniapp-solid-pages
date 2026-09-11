@@ -1,7 +1,9 @@
 # Cloudflare Workers static-assets header rules. Vite copies public/ into dist/ verbatim;
 # Workers parses `_headers` from the static-asset directory root and applies the matching
 # block(s) to asset responses (https://developers.cloudflare.com/workers/static-assets/headers/).
-# GitHub Pages ignores this file.
+# GitHub Pages (the production host, ao-yume/miniapp) IGNORES this file — it serves
+# `cache-control: max-age=600` + ETag for both the shell and the hashed assets, so the rules
+# below are the intent contract, not the live policy. See docs/DEPLOYMENT.md.
 #
 # Default without this file: `Cache-Control: public, max-age=0, must-revalidate`.
 #

@@ -1,0 +1,1 @@
+import{S as e}from"./web-CiNxUFf_.js";import{a as o,n as r}from"./index-Dstb-3FG.js";import{i as s,n as a,r as i,t as u}from"./skeletons-DkaA9QHI.js";function f(){const t=o(),n=()=>t.pathname;return n().includes("/anime/single")?e(s,{}):n().includes("/anime/home")?e(a,{}):n().includes("/query/results")?e(i,{count:6}):n().includes("/genres")?e(u,{}):e(r,{})}export{f as t};
