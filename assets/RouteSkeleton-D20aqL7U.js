@@ -1,0 +1,1 @@
+import{l as e}from"./solid-Bi0u8QYu.js";import{i as o,s as r}from"./index-CQh4c_8Z.js";import{i as s,n as i,r as a,t as u}from"./skeletons-B-rvrNjU.js";function f(){const t=r(),n=()=>t.pathname;return n().includes("/anime/single")?e(s,{}):n().includes("/anime/home")?e(i,{}):n().includes("/query/results")?e(a,{count:6}):n().includes("/genres")?e(u,{}):e(o,{})}export{f as t};

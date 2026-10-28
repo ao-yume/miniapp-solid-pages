@@ -1,0 +1,1 @@
+import{l as e}from"./solid-Bi0u8QYu.js";import{a as t}from"./index-CQh4c_8Z.js";import{t as o}from"./RouteSkeleton-D20aqL7U.js";function u(r){return e(t,{get fallback(){return e(o,{})},get children(){return r.children}})}export{u as QueryShell,u as default};
